@@ -1,53 +1,6 @@
 //package GUIs;
 //
 //import java.awt.BorderLayout;
-//import Entidades.Cliente;
-//import java.awt.Color;
-//import java.awt.Container;
-//import java.awt.ScrollPane;
-//import java.util.List;
-//import javax.swing.JDialog;
-//import javax.swing.JPanel;
-//import javax.swing.JTextArea;
-//import javax.swing.JToolBar;
-//
-//
-//public class ClienteGUIListagem extends JDialog {
-//
-//    JPanel painelTa = new JPanel();
-//    ScrollPane scroll = new ScrollPane();
-//    JTextArea ta = new JTextArea();
-//
-//    public ClienteGUIListagem(List<Cliente> texto, int posX, int posY) {
-//        setTitle("Listagem de Cliente");
-//        setSize(500, 180);//tamanho da janela
-//        setDefaultCloseOperation(DISPOSE_ON_CLOSE);//libera ao sair (tira da memória a classe
-//        setLayout(new BorderLayout());//informa qual gerenciador de layout será usado
-//        setBackground(Color.CYAN);//cor do fundo da janela
-//        setModal(true);
-//        Container cp = getContentPane();//container principal, para adicionar nele os outros componentes
-//
-//        JToolBar toolBar = new JToolBar();
-//
-//        ta.setText("");
-//        for (int i = 0; i < texto.size(); i++) {
-//            ta.append(texto.get(i).toString() + System.lineSeparator());
-//        }
-//
-//        scroll.add(ta);
-//        painelTa.add(scroll);
-//
-//        cp.add(toolBar, BorderLayout.NORTH);
-//        cp.add(scroll, BorderLayout.CENTER);
-//
-//        setLocation(posX + 20, posY + 20);
-//        setVisible(true);//faz a janela ficar visível        
-//    }
-//}
-//
-//package GUIs;
-//
-//import java.awt.BorderLayout;
 //import java.awt.Color;
 //import java.awt.Container;
 //import java.awt.Desktop;
@@ -61,15 +14,15 @@
 //import javax.swing.table.DefaultTableModel;
 //import Auxiliar.*;
 //// @author Radames
-//public class FiadorGUIListagem extends JDialog {
+//public class funcionarioGUIListagem extends JDialog {
 //
 //    JPanel painelTa = new JPanel();
-//    static DefaultTableModel modelo = new DefaultTableModel(new String[]{"C:\\Users\\Maggie\\Desktop\\Pessoa.txt","renda"}, 0);
+//    static DefaultTableModel modelo = new DefaultTableModel(new String[]{"C:\\Users\\Maggie\\Desktop\\Pesoa.txt","senha"}, 0);
 //    static JTable tabela = new JTable(modelo);
 //    JScrollPane scroll = new JScrollPane(tabela);
 //    List<String> lista = new ArrayList<>();
-//    public FiadorGUIListagem(List<String> texto, Container cp2) {
-//        setTitle("Listagem de Fiador");
+//    public funcionarioGUIListagem(List<String> texto, Container cp2) {
+//        setTitle("Listagem de funcionario");
 //        setSize(840, 315);//tamanho da janela
 //        setDefaultCloseOperation(DISPOSE_ON_CLOSE);//libera ao sair (tira da memória a classe
 //        setLayout(new BorderLayout());//informa qual gerenciador de layout será usado
@@ -87,7 +40,7 @@
 //    }
 //
 //    public void atualizaTabela() {
-//        DefaultTableModel modelo = new DefaultTableModel(new String[]{"C:\\Users\\Maggie\\Desktop\\Pessoa.txt","renda"}, 0);
+//        DefaultTableModel modelo = new DefaultTableModel(new String[]{"C:\\Users\\Maggie\\Desktop\\Pesoa.txt","senha"}, 0);
 //        int aux = 0;
 //
 //        for (int i = 0; i < lista.size(); i++) {
@@ -105,7 +58,7 @@
 //
 package GUIs;
 
-import Entidades.Cliente;
+import Entidades.Funcionario;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -122,15 +75,15 @@ import java.text.DecimalFormat;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 
-public class ClienteGUIListagem extends JDialog {
+public class funcionarioGUIListagem extends JDialog {
 
     JPanel painelTa = new JPanel();
     JScrollPane scroll = new JScrollPane();
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     DecimalFormat decimalFormat = new DecimalFormat("###,###,##0.00");
 
-    public ClienteGUIListagem(List<Cliente> texto, int posX, int posY, Dimension dimensao) {
-        setTitle("Listagem do Cliente");
+    public funcionarioGUIListagem(List<Funcionario> texto, int posX, int posY, Dimension dimensao) {
+        setTitle("Listagem de Funcionario");
         setSize(dimensao);//tamanho da janela
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);//libera ao sair (tira da memÃ³ria a classe
         setLayout(new BorderLayout());//informa qual gerenciador de layout serÃ¡ usado
@@ -141,7 +94,7 @@ public class ClienteGUIListagem extends JDialog {
         JToolBar toolBar = new JToolBar();
 
         String[] colunas = new String[]{"pessoaCPF",
-            "DataCadastro",
+            "senha",
             "pessoa.getPessoa",};
 
         String[][] dados = new String[0][3];
@@ -153,7 +106,7 @@ public class ClienteGUIListagem extends JDialog {
 
         for (int i = 0; i < texto.size(); i++) {
             String[] linha = new String[]{String.valueOf(texto.get(i).getPessoaCPF()),
-                sdf.format(texto.get(i).getDataCadastro()),
+                (texto.get(i).getSenha()),
                 texto.get(i).getPessoa().getNome()};
             model.addRow(linha);
         }

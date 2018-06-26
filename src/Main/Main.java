@@ -5,6 +5,8 @@
  */
 package Main;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author Maggie
@@ -15,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MenuPessoa menuPessoa = new MenuPessoa();
+        MenuPessoa menuPessoa = new MenuPessoa(new Dimension(1200, 800));
 
     }
 
